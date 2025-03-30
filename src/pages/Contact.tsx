@@ -1,5 +1,6 @@
 
 import ContactForm from '@/components/contact/ContactForm';
+import SocialMediaPresence from '@/components/contact/SocialMediaPresence';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 
@@ -38,6 +39,8 @@ const Contact = () => {
             </div>
           </div>
         </section>
+        
+        <SocialMediaPresence />
       </main>
       <Footer />
     </div>
