@@ -12,7 +12,8 @@ const CoursesList = () => {
       image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
       level: "Beginner to Intermediate",
       instructor: "Dr. Sarah Chen",
-      price: "$1,299"
+      price: "$1,299",
+      students: 324
     },
     {
       id: 2,
@@ -22,7 +23,8 @@ const CoursesList = () => {
       image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
       level: "Intermediate",
       instructor: "James Park",
-      price: "$1,499"
+      price: "$1,499",
+      students: 256
     },
     {
       id: 3,
@@ -32,7 +34,8 @@ const CoursesList = () => {
       image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
       level: "Intermediate to Advanced",
       instructor: "Dr. Alex Thompson",
-      price: "$1,199"
+      price: "$1,199",
+      students: 198
     },
     {
       id: 4,
@@ -42,7 +45,8 @@ const CoursesList = () => {
       image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
       level: "Intermediate",
       instructor: "Emma Wilson",
-      price: "$1,399"
+      price: "$1,399",
+      students: 215
     },
     {
       id: 5,
@@ -52,7 +56,8 @@ const CoursesList = () => {
       image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
       level: "Intermediate to Advanced",
       instructor: "Michael Rodriguez",
-      price: "$1,299"
+      price: "$1,299",
+      students: 176
     },
     {
       id: 6,
@@ -62,7 +67,8 @@ const CoursesList = () => {
       image: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
       level: "Beginner to Intermediate",
       instructor: "Linda Garcia",
-      price: "$1,199"
+      price: "$1,199",
+      students: 145
     }
   ];
 

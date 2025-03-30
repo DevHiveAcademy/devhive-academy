@@ -10,8 +10,9 @@ export interface CourseProps {
   image: string;
   duration: string;
   level: string;
-  students: number;
+  students?: number; // Make students optional
   price?: string;
+  instructor?: string;
 }
 
 const CourseCard = ({ course }: { course: CourseProps }) => {
@@ -42,10 +43,12 @@ const CourseCard = ({ course }: { course: CourseProps }) => {
             <BarChart className="h-4 w-4 mr-1" />
             <span>{course.level}</span>
           </div>
-          <div className="flex items-center">
-            <Users className="h-4 w-4 mr-1" />
-            <span>{course.students.toLocaleString()} students</span>
-          </div>
+          {course.students !== undefined && (
+            <div className="flex items-center">
+              <Users className="h-4 w-4 mr-1" />
+              <span>{course.students.toLocaleString()} students</span>
+            </div>
+          )}
         </div>
         
         <div className="flex space-x-3">
