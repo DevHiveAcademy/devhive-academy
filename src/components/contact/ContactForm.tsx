@@ -57,7 +57,7 @@ const ContactForm = () => {
               <MapPin className="h-6 w-6 mr-4 flex-shrink-0 mt-1" />
               <div>
                 <h4 className="font-semibold mb-1">Our Location</h4>
-                <p className="text-blue-100">123 Tech Street, Innovation City, IC 10101</p>
+                <p className="text-blue-100">Mbarara City, High Street, Amazon Building, Rm 17, 1st Floor</p>
               </div>
             </div>
             

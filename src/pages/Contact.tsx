@@ -25,9 +25,9 @@ const Contact = () => {
             <div className="mt-16">
               <h2 className="text-2xl font-bold mb-6 text-center text-gray-900">Find Us</h2>
               <div className="w-full h-96 rounded-lg overflow-hidden shadow-md">
-                {/* Google Map Embed - Replace with actual location */}
+                {/* Updated Google Map Embed for Mbarara, Uganda */}
                 <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.9914406234065!2d-122.08427708436976!3d37.42199993994622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fbc96de8dc419%3A0x35b8ee9bee1b1d0a!2sMountain%20View%2C%20CA%2C%20USA!5e0!3m2!1sen!2sca!4v1623184878740!5m2!1sen!2sca" 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15959.149126242526!2d30.648220626025157!3d-0.6167799681721185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19d971c8ce9e5c11%3A0xee6d56e43a75e32e!2sMbarara%2C%20Uganda!5e0!3m2!1sen!2sus!4v1701789012345!5m2!1sen!2sus" 
                   width="100%" 
                   height="100%" 
                   style={{ border: 0 }} 
