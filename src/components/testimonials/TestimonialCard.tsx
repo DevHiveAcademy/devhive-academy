@@ -2,7 +2,7 @@
 import { Star } from 'lucide-react';
 
 export interface TestimonialProps {
-  id: number;
+  id: string | number;
   content: string;
   author: string;
   role: string;

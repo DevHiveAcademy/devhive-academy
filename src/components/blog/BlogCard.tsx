@@ -3,7 +3,7 @@ import { Calendar, User } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export interface BlogPostProps {
-  id: number;
+  id: string | number;
   title: string;
   excerpt: string;
   content?: string;
