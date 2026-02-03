@@ -12,14 +12,21 @@ export interface ContactSubmission {
 export const useContactSubmission = () => {
   return useMutation({
     mutationFn: async (submission: ContactSubmission) => {
-      const { data, error } = await supabase
+      // Clean up the submission data - remove undefined values
+      const cleanSubmission = {
+        name: submission.name,
+        email: submission.email,
+        subject: submission.subject,
+        message: submission.message,
+        ...(submission.phone && { phone: submission.phone })
+      };
+
+      const { error } = await supabase
         .from('contact_submissions')
-        .insert([submission])
-        .select()
-        .single();
+        .insert([cleanSubmission]);
       
       if (error) throw error;
-      return data;
+      return { success: true };
     }
   });
 };
