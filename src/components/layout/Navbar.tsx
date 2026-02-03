@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import GoogleSignInButton from '@/components/auth/GoogleSignInButton';
+import { ThemeToggle } from '@/components/theme/ThemeToggle';
 import { supabase } from '@/integrations/supabase/client';
 import { User } from '@supabase/supabase-js';
 
@@ -61,6 +62,7 @@ const Navbar = () => {
                 {item.name}
               </Link>
             ))}
+            <ThemeToggle />
             {user ? (
               <div className="flex items-center gap-3 ml-4">
                 <span className="text-sm text-muted-foreground">{user.email}</span>
@@ -104,6 +106,10 @@ const Navbar = () => {
                 {item.name}
               </Link>
             ))}
+            <div className="px-3 py-2 flex items-center gap-2">
+              <span className="text-sm text-muted-foreground">Theme:</span>
+              <ThemeToggle />
+            </div>
             {user ? (
               <div className="px-3 py-2 space-y-2">
                 <span className="block text-sm text-muted-foreground">{user.email}</span>
