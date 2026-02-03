@@ -14,7 +14,203 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      blog_posts: {
+        Row: {
+          author_avatar: string | null
+          author_name: string
+          category: string
+          content: string | null
+          created_at: string
+          excerpt: string
+          id: string
+          image: string | null
+          published_at: string | null
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          author_avatar?: string | null
+          author_name: string
+          category: string
+          content?: string | null
+          created_at?: string
+          excerpt: string
+          id?: string
+          image?: string | null
+          published_at?: string | null
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          author_avatar?: string | null
+          author_name?: string
+          category?: string
+          content?: string | null
+          created_at?: string
+          excerpt?: string
+          id?: string
+          image?: string | null
+          published_at?: string | null
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      contact_submissions: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          is_read: boolean | null
+          message: string
+          name: string
+          phone: string | null
+          subject: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          is_read?: boolean | null
+          message: string
+          name: string
+          phone?: string | null
+          subject: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          is_read?: boolean | null
+          message?: string
+          name?: string
+          phone?: string | null
+          subject?: string
+        }
+        Relationships: []
+      }
+      course_enrollments: {
+        Row: {
+          course_id: string
+          enrolled_at: string
+          id: string
+          status: string | null
+          user_id: string
+        }
+        Insert: {
+          course_id: string
+          enrolled_at?: string
+          id?: string
+          status?: string | null
+          user_id: string
+        }
+        Update: {
+          course_id?: string
+          enrolled_at?: string
+          id?: string
+          status?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "course_enrollments_course_id_fkey"
+            columns: ["course_id"]
+            isOneToOne: false
+            referencedRelation: "courses"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      courses: {
+        Row: {
+          created_at: string
+          description: string
+          duration: string
+          full_description: string | null
+          id: string
+          image: string | null
+          instructor_names: string[] | null
+          is_featured: boolean | null
+          level: string
+          modules: string[] | null
+          price: number
+          start_date: string | null
+          students_count: number | null
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          description: string
+          duration: string
+          full_description?: string | null
+          id?: string
+          image?: string | null
+          instructor_names?: string[] | null
+          is_featured?: boolean | null
+          level: string
+          modules?: string[] | null
+          price: number
+          start_date?: string | null
+          students_count?: number | null
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string
+          duration?: string
+          full_description?: string | null
+          id?: string
+          image?: string | null
+          instructor_names?: string[] | null
+          is_featured?: boolean | null
+          level?: string
+          modules?: string[] | null
+          price?: number
+          start_date?: string | null
+          students_count?: number | null
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      testimonials: {
+        Row: {
+          author: string
+          avatar: string | null
+          company: string | null
+          content: string
+          created_at: string
+          id: string
+          is_featured: boolean | null
+          rating: number | null
+          role: string
+        }
+        Insert: {
+          author: string
+          avatar?: string | null
+          company?: string | null
+          content: string
+          created_at?: string
+          id?: string
+          is_featured?: boolean | null
+          rating?: number | null
+          role: string
+        }
+        Update: {
+          author?: string
+          avatar?: string | null
+          company?: string | null
+          content?: string
+          created_at?: string
+          id?: string
+          is_featured?: boolean | null
+          rating?: number | null
+          role?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

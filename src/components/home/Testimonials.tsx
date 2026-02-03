@@ -1,52 +1,59 @@
-
 import { useState } from 'react';
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
+import { useFeaturedTestimonials } from '@/hooks/useTestimonials';
+import { Skeleton } from '@/components/ui/skeleton';
 
 const Testimonials = () => {
-  const testimonials = [
-    {
-      id: 1,
-      content: "The AI course at Software Dev Academy completely changed my career trajectory. The hands-on approach and expert instructors gave me the skills and confidence to transition into a machine learning engineer role.",
-      author: "Sarah Johnson",
-      role: "Machine Learning Engineer",
-      avatar: "https://randomuser.me/api/portraits/women/1.jpg"
-    },
-    {
-      id: 2,
-      content: "As someone with no prior coding experience, I was amazed at how quickly I was able to build real applications. The curriculum is well-structured and the mentorship was invaluable to my learning journey.",
-      author: "Michael Chen",
-      role: "Full-Stack Developer",
-      avatar: "https://randomuser.me/api/portraits/men/2.jpg"
-    },
-    {
-      id: 3,
-      content: "The project-based learning approach prepared me for real-world challenges. Within three months of completing the course, I landed a job at a leading tech company and have been excelling ever since.",
-      author: "Alex Rodriguez",
-      role: "Software Engineer",
-      avatar: "https://randomuser.me/api/portraits/men/3.jpg"
-    },
-    {
-      id: 4,
-      content: "The instructors don't just teach you how to code, they teach you how to think like a developer. This mindset shift was the most valuable part of my education at Software Dev Academy.",
-      author: "Emma Thompson",
-      role: "Data Scientist",
-      avatar: "https://randomuser.me/api/portraits/women/4.jpg"
-    }
-  ];
-
+  const { data: testimonials, isLoading } = useFeaturedTestimonials();
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const goToPrevious = () => {
+    if (!testimonials) return;
     setCurrentIndex((prevIndex) => 
       prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
     );
   };
 
   const goToNext = () => {
+    if (!testimonials) return;
     setCurrentIndex((prevIndex) => 
       prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
     );
   };
+
+  if (isLoading) {
+    return (
+      <section className="py-16 md:py-24 bg-primary-700 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Success Stories</h2>
+            <div className="h-1 w-20 bg-white mx-auto mb-8"></div>
+          </div>
+          <div className="relative max-w-4xl mx-auto">
+            <div className="bg-white text-gray-800 rounded-xl p-8 shadow-xl md:p-10">
+              <Skeleton className="h-8 w-8 mb-6" />
+              <Skeleton className="h-6 w-full mb-2" />
+              <Skeleton className="h-6 w-full mb-2" />
+              <Skeleton className="h-6 w-3/4 mb-8" />
+              <div className="flex items-center">
+                <Skeleton className="w-14 h-14 rounded-full mr-4" />
+                <div>
+                  <Skeleton className="h-5 w-32 mb-2" />
+                  <Skeleton className="h-4 w-24" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (!testimonials || testimonials.length === 0) {
+    return null;
+  }
+
+  const currentTestimonial = testimonials[currentIndex];
 
   return (
     <section className="py-16 md:py-24 bg-primary-700 text-white">
@@ -64,16 +71,16 @@ const Testimonials = () => {
             <div className="text-primary-600 mb-6">
               <Quote size={40} />
             </div>
-            <p className="text-lg md:text-xl mb-8">{testimonials[currentIndex].content}</p>
+            <p className="text-lg md:text-xl mb-8">{currentTestimonial.content}</p>
             <div className="flex items-center">
               <img 
-                src={testimonials[currentIndex].avatar} 
-                alt={testimonials[currentIndex].author} 
+                src={currentTestimonial.avatar || `https://randomuser.me/api/portraits/men/${currentIndex + 1}.jpg`} 
+                alt={currentTestimonial.author} 
                 className="w-14 h-14 rounded-full mr-4"
               />
               <div>
-                <h4 className="font-bold text-lg">{testimonials[currentIndex].author}</h4>
-                <p className="text-gray-600">{testimonials[currentIndex].role}</p>
+                <h4 className="font-bold text-lg">{currentTestimonial.author}</h4>
+                <p className="text-gray-600">{currentTestimonial.role}</p>
               </div>
             </div>
           </div>

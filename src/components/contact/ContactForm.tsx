@@ -1,11 +1,12 @@
-
 import { useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/components/ui/use-toast';
+import { useContactSubmission } from '@/hooks/useContactSubmission';
 
 const ContactForm = () => {
   const { toast } = useToast();
+  const { mutate: submitContact, isPending } = useContactSubmission();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -13,7 +14,6 @@ const ContactForm = () => {
     subject: '',
     message: ''
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -22,23 +22,35 @@ const ContactForm = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
-      toast({
-        title: "Message Sent Successfully",
-        description: "Thank you for contacting Software Dev Academy. We'll respond to your inquiry shortly.",
-      });
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: ''
-      });
-      setIsSubmitting(false);
-    }, 1500);
+    submitContact({
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone || undefined,
+      subject: formData.subject,
+      message: formData.message
+    }, {
+      onSuccess: () => {
+        toast({
+          title: "Message Sent Successfully",
+          description: "Thank you for contacting Software Dev Academy. We'll respond to your inquiry shortly.",
+        });
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          subject: '',
+          message: ''
+        });
+      },
+      onError: (error) => {
+        toast({
+          title: "Failed to send message",
+          description: error.message,
+          variant: "destructive"
+        });
+      }
+    });
   };
 
   return (
@@ -166,8 +178,8 @@ const ContactForm = () => {
               ></textarea>
             </div>
             
-            <Button type="submit" disabled={isSubmitting} className="w-full">
-              {isSubmitting ? 'Sending...' : (
+            <Button type="submit" disabled={isPending} className="w-full">
+              {isPending ? 'Sending...' : (
                 <>
                   Send Message
                   <Send className="ml-2 h-4 w-4" />

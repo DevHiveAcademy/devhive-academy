@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 
 export interface CourseProps {
-  id: number;
+  id: string | number;
   title: string;
   description: string;
   image: string;
   duration: string;
   level: string;
-  students?: number; // Make students optional
+  students?: number;
   price?: string;
   instructor?: string;
 }
