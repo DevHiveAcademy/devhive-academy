@@ -21,7 +21,7 @@ const TestimonialsPreview = () => {
 
         <div className="grid md:grid-cols-3 gap-8">
           {testimonials.slice(0, 3).map((t) => (
-            <Card key={t.id} className="relative">
+            <Card key={t.id} className="relative border-border/50 bg-gradient-to-br from-card via-card to-primary/5 hover:shadow-lg transition-all duration-300">
               <CardContent className="p-8 space-y-4">
                 <Quote className="h-8 w-8 text-primary/20" />
 

@@ -27,7 +27,7 @@ const FeaturedCoursesPreview = () => {
           {courses.slice(0, 3).map((course) => (
             <Card
               key={course.id}
-              className="group overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+              className="group overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer border-border/50 bg-gradient-to-b from-card to-muted/30"
               onClick={() => navigate(`/courses/${course.id}`)}
             >
               {course.image && (
