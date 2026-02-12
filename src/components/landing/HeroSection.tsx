@@ -50,10 +50,10 @@ const HeroSection = () => {
           {/* Right column — decorative */}
           <div className="hidden md:flex items-center justify-center">
             <div className="relative w-80 h-80">
-              <div className="absolute inset-0 rounded-full bg-primary/10 animate-pulse" />
-              <div className="absolute inset-6 rounded-full bg-primary/15" />
-              <div className="absolute inset-12 rounded-full bg-primary/20 flex items-center justify-center">
-                <GraduationCap className="h-24 w-24 text-primary" />
+              <div className="absolute inset-0 rounded-full bg-primary/10 animate-spring-ring-outer" />
+              <div className="absolute inset-6 rounded-full bg-primary/15 animate-spring-ring-mid" />
+              <div className="absolute inset-12 rounded-full bg-primary/20 animate-spring-ring-inner flex items-center justify-center">
+                <GraduationCap className="h-24 w-24 text-primary animate-spring-icon" />
               </div>
             </div>
           </div>
