@@ -1,5 +1,6 @@
 import { UserPlus, Compass, Play } from 'lucide-react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
+import studentsCollab from '@/assets/students-collab.png';
 
 const steps = [
   { icon: UserPlus, title: 'Sign Up', description: 'Create your free account in seconds with Google sign-in.' },
@@ -20,8 +21,16 @@ const HowItWorks = () => {
           </p>
         </div>
 
+        <div className="rounded-2xl overflow-hidden shadow-lg">
+          <img
+            src={studentsCollab}
+            alt="Students collaborating on code projects"
+            className="w-full h-56 md:h-72 object-cover"
+            loading="lazy"
+          />
+        </div>
+
         <div className="grid md:grid-cols-3 gap-8 relative">
-          {/* Connecting line (desktop) */}
           <div className="hidden md:block absolute top-10 left-[20%] right-[20%] h-0.5 bg-border" />
 
           {steps.map(({ icon: Icon, title, description }, i) => (
