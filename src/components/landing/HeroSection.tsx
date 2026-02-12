@@ -3,6 +3,7 @@ import { ArrowRight, GraduationCap, BookOpen, Award } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import GoogleSignInButton from '@/components/auth/GoogleSignInButton';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
+import heroStudent from '@/assets/hero-student.png';
 
 const stats = [
   { icon: GraduationCap, value: '500+', label: 'Students' },
@@ -16,7 +17,6 @@ const HeroSection = () => {
 
   return (
     <section className="relative overflow-hidden">
-      {/* Animated gradient background */}
       <div className="absolute inset-0 -z-10 hero-gradient" />
 
       <div ref={ref} className="reveal-section max-w-7xl mx-auto px-6 py-20 md:py-28">
@@ -47,15 +47,20 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right column — decorative */}
-          <div className="hidden md:flex items-center justify-center">
-            <div className="relative w-80 h-80">
-              <div className="absolute inset-0 rounded-full bg-primary/10 animate-spring-ring-outer" />
-              <div className="absolute inset-6 rounded-full bg-primary/15 animate-spring-ring-mid" />
-              <div className="absolute inset-12 rounded-full bg-primary/20 animate-spring-ring-inner flex items-center justify-center">
-                <GraduationCap className="h-24 w-24 text-primary animate-spring-icon" />
-              </div>
+          {/* Right column — hero image with decorative accents */}
+          <div className="hidden md:flex items-center justify-center relative">
+            {/* Decorative geometric arcs behind the image */}
+            <div className="absolute -top-8 -right-8 w-[420px] h-[420px]">
+              <div className="absolute inset-0 rounded-full border-[3px] border-primary/20 animate-spring-ring-outer" />
+              <div className="absolute inset-6 rounded-full border-[3px] border-primary/15 animate-spring-ring-mid" />
+              <div className="absolute inset-12 rounded-full bg-primary/5 animate-spring-ring-inner" />
             </div>
+            {/* Student image */}
+            <img
+              src={heroStudent}
+              alt="Student ready to launch their tech career"
+              className="relative z-10 w-80 h-auto rounded-2xl object-cover shadow-2xl animate-spring-icon"
+            />
           </div>
         </div>
 
